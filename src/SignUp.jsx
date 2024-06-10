@@ -10,9 +10,14 @@ function SignUp() {
 
   const handleSignUp = () => {
     if (password === confirmPassword && name.trim() && password.trim()) {
+      // Salvar a conta no localStorage
+      const newUser = { name, password };
+      localStorage.setItem('lastUser', JSON.stringify(newUser));
+
       console.log('Registro realizado com sucesso!');
-      // Navegue para a página de login
-      navigate('/LoginPage');
+      // Navegar para a página de login
+      alert('Conta criada chefia!');
+      navigate('/');
     } else {
       alert('As senhas não correspondem ou algum campo está em branco.');
     }
