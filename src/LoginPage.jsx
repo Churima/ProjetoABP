@@ -8,7 +8,6 @@ function LoginPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Recuperar os dados da última pessoa criada armazenados no localStorage
     const lastUser = localStorage.getItem('lastUser');
     if (lastUser) {
       const parsedUser = JSON.parse(lastUser);
@@ -18,12 +17,11 @@ function LoginPage() {
   }, []);
 
   const handleLogin = () => {
-    // Verificar se o nome de usuário e a senha correspondem à última pessoa criada
     const lastUser = localStorage.getItem('lastUser');
     if (lastUser) {
       const parsedUser = JSON.parse(lastUser);
       if (parsedUser.name === name && parsedUser.password === password) {
-        navigate('/messages', { state: { userName: name } });
+        navigate('/cronometro', { state: { userName: name } });
         return;
       }
     }
