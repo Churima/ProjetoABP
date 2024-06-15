@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Cronometro.css'; // Certifique-se de que o caminho está correto
+import './Cronometro.css';
 
 function Cronometro() {
   const [activities, setActivities] = useState([]);
@@ -40,6 +40,14 @@ function Cronometro() {
     }
   };
 
+  const formatTime = (time) => {
+    const totalSeconds = parseInt(time, 10);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    return `${hours > 0 ? hours + 'h ' : ''}${minutes > 0 ? minutes + 'm ' : ''}${seconds}s`;
+  };
+
   return (
     <div className="cronometro-container">
       <div className="add-activity">
@@ -60,9 +68,13 @@ function Cronometro() {
       <div className="activities-list">
         <h2>Atividades do dia</h2>
         {activities.map((activity, index) => (
-          <div key={index} onClick={() => selectActivity(activity)}>
-            {activity.name} {activity.time}
-          </div>
+          <button 
+            key={index} 
+            onClick={() => selectActivity(activity)} 
+            className="activity-button"
+          >
+            {activity.name} ({formatTime(activity.time)})
+          </button>
         ))}
       </div>
       {selectedActivity && (
