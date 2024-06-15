@@ -25,8 +25,9 @@ function Cronometro() {
   }, [isRunning, remainingTime, selectedActivity]);
 
   const addActivity = () => {
-    if (activityName && activityTime) {
-      setActivities([...activities, { name: activityName, time: activityTime }]);
+    const totalSeconds = parseTime(activityTime);
+    if (activityName && totalSeconds > 0) {
+      setActivities([...activities, { name: activityName, time: totalSeconds }]);
       setActivityName('');
       setActivityTime('');
     }
@@ -34,7 +35,7 @@ function Cronometro() {
 
   const selectActivity = (activity) => {
     setSelectedActivity(activity);
-    setRemainingTime(parseInt(activity.time, 10));
+    setRemainingTime(activity.time);
   };
 
   const deleteActivity = (index) => {
@@ -52,12 +53,34 @@ function Cronometro() {
     }
   };
 
+  const parseTime = (timeString) => {
+    const timeParts = timeString.split(':').map(Number);
+    if (timeParts.length === 3) {
+      const [hours, minutes, seconds] = timeParts;
+      return (hours * 3600) + (minutes * 60) + seconds;
+    } else if (timeParts.length === 2) {
+      const [minutes, seconds] = timeParts;
+      return (minutes * 60) + seconds;
+    } else if (timeParts.length === 1) {
+      const [seconds] = timeParts;
+      return seconds;
+    }
+    return 0;
+  };
+
   const formatTime = (time) => {
-    const totalSeconds = parseInt(time, 10);
-    const hours = Math.floor(totalSeconds / 3600);
-    const minutes = Math.floor((totalSeconds % 3600) / 60);
-    const seconds = totalSeconds % 60;
+    const hours = Math.floor(time / 3600);
+    const minutes = Math.floor((time % 3600) / 60);
+    const seconds = time % 60;
     return `${hours > 0 ? hours + 'h ' : ''}${minutes > 0 ? minutes + 'm ' : ''}${seconds}s`;
+  };
+
+  const handleTimeChange = (e) => {
+    const { value } = e.target;
+    const regex = /^(\d{0,2}:)?(\d{0,2}:)?(\d{0,2})$/;
+    if (regex.test(value)) {
+      setActivityTime(value);
+    }
   };
 
   return (
@@ -70,10 +93,10 @@ function Cronometro() {
           onChange={(e) => setActivityName(e.target.value)}
         />
         <input
-          type="number"
-          placeholder="Tempo em segundos"
+          type="text"
+          placeholder="HH:MM:SS"
           value={activityTime}
-          onChange={(e) => setActivityTime(e.target.value)}
+          onChange={handleTimeChange}
         />
         <button onClick={addActivity}>Adicionar</button>
       </div>
