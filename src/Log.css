@@ -3,8 +3,8 @@ body, html {
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
-  background-color: #767575; /* Cor de fundo clara para melhor visualização */
-  height: 100%; /* Garante que o corpo ocupe toda a altura da janela */
+  background-color: #767575; 
+  height: 100%;
 }
 
 .container {

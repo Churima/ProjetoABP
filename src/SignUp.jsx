@@ -10,12 +10,12 @@ function SignUp() {
 
   const handleSignUp = () => {
     if (password === confirmPassword && name.trim() && password.trim()) {
-      // Salvar a conta no localStorage
+      
       const newUser = { name, password };
       localStorage.setItem('lastUser', JSON.stringify(newUser));
 
       console.log('Registro realizado com sucesso!');
-      // Navegar para a página de login
+      
       alert('Conta criada chefia!');
       navigate('/');
     } else {

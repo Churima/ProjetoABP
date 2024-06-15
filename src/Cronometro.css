@@ -1,123 +1,144 @@
 .cronometro-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    background-color: #f0f0f0; /* Cor de fundo mais clara */
-    color: #333; /* Cor do texto mais escura */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .add-activity {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    max-width: 400px;
-  }
-  
-  .add-activity input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .add-activity button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .add-activity button:hover {
-    background-color: #0056b3;
-  }
-  
-  .activities-list {
-    width: 100%;
-    max-width: 400px;
-  }
-  
-  .activities-list h2 {
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  
-  .activities-list div {
-    cursor: pointer;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    margin: 5px 0;
-    border-radius: 5px;
-    text-align: center;
-    transition: background-color 0.3s;
-  }
-  
-  .activities-list div:hover {
-    background-color: #0056b3;
-  }
-  
-  .cronometro {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    grid-area: cronometro;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-activity {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.add-activity input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-activity button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.add-activity button:hover {
+  background-color: #0056b3;
+}
+
+.activities-list {
+  width: 100%;
+  max-width: 400px;
+}
+
+.activities-list h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.activity-button {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s;
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.activity-button:hover {
+  background-color: #0056b3;
+}
+
+.delete-button {
+  padding: 10px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #cc0000;
+}
+
+.cronometro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-area: cronometro;
+}
+
+.relogioWrapper {
+  align-items: center;
+  background-color: #7687A1;
+  border-radius: 10px;
+  box-shadow: 2px 4px 4px #0000009F;
+  box-sizing: border-box;
+  display: flex;
+  font-size: 5rem;
+  justify-content: center;
+  margin-bottom: 24px;
+  padding: 16px 12px;
+  width: 100%;
+}
+
+.titulo {
+  font-size: 2rem;
+}
+
+.cronometro button {
+  background-color: #88bcd1;
+  border-radius: 10px;
+  box-shadow: 2px 4px 4px #0000009F;
+  color: #272626;
+  cursor: pointer;
+  font-size: 1.25rem;
+  padding: 16px;
+  width: 150px;
+}
+
+.cronometro button:active {
+  background-color: #7CA6B7;
+  box-shadow: 2px 2px 4px #0000009F inset;
+  cursor: auto;
+}
+
+@media screen and (min-width: 1280px) {
   .relogioWrapper {
-    align-items: center;
-    background-color: #7687A1;
-    border-radius: 10px;
-    box-shadow: 2px 4px 4px #0000009F;
-    box-sizing: border-box;
-    display: flex;
-    font-size: 5rem;
-    justify-content: center;
-    margin-bottom: 24px;
-    padding: 16px 12px;
-    width: 100%;
-  }
-  
-  .titulo {
-    font-size: 2rem;
-  }
-  
-  .cronometro button {
-    background-color: #88bcd1;
-    border-radius: 10px;
-    box-shadow: 2px 4px 4px #0000009F;
-    color: #272626;
-    cursor: pointer;
-    font-size: 1.25rem;
-    padding: 16px;
-    width: 150px;
-  }
-  
-  .cronometro button:active {
-    background-color: #7CA6B7;
-    box-shadow: 2px 2px 4px #0000009F inset;
-    cursor: auto;
-  }
-  
-  @media screen and (min-width:1280px) {
-    .relogioWrapper {
       font-size: 15rem;
-    }
-  
-    .cronometro p {
+  }
+
+  .cronometro p {
       font-size: 2rem;
-    }
-  
-    .cronometro button {
+  }
+
+  .cronometro button {
       grid-column-start: span 2;
       justify-self: center;
       width: 200px;
       font-size: 2.25rem;
-    }
   }
-  
+}

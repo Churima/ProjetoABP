@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Cronometro.css'; // Certifique-se de que o caminho está correto
+import './Cronometro.css';
 
 function Cronometro() {
   const [activities, setActivities] = useState([]);
@@ -37,6 +37,15 @@ function Cronometro() {
     setRemainingTime(parseInt(activity.time, 10));
   };
 
+  const deleteActivity = (index) => {
+    setActivities(activities.filter((_, i) => i !== index));
+    if (selectedActivity === activities[index]) {
+      setSelectedActivity(null);
+      setIsRunning(false);
+      setRemainingTime(null);
+    }
+  };
+
   const startTimer = () => {
     if (remainingTime > 0) {
       setIsRunning(true);
@@ -71,13 +80,12 @@ function Cronometro() {
       <div className="activities-list">
         <h2>Atividades do dia</h2>
         {activities.map((activity, index) => (
-          <button 
-            key={index} 
-            onClick={() => selectActivity(activity)} 
-            className="activity-button"
-          >
-            {activity.name} ({formatTime(activity.time)})
-          </button>
+          <div key={index} className="activity-item">
+            <button onClick={() => selectActivity(activity)} className="activity-button">
+              {activity.name} ({formatTime(activity.time)})
+            </button>
+            <button onClick={() => deleteActivity(index)} className="delete-button">Excluir</button>
+          </div>
         ))}
       </div>
       {selectedActivity && (
