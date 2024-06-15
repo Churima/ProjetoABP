@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Cronometro.css';
+import './Cronometro.css'; // Certifique-se de que o caminho está correto
 
 function Cronometro() {
   const [activities, setActivities] = useState([]);
@@ -17,9 +17,12 @@ function Cronometro() {
       }, 1000);
     } else if (remainingTime === 0) {
       setIsRunning(false);
+      if (selectedActivity && selectedActivity.name.toLowerCase() === 'lucas') {
+        window.location.href = 'https://www.youtube.com/shorts/CQULp6djUN8';
+      }
     }
     return () => clearInterval(timer);
-  }, [isRunning, remainingTime]);
+  }, [isRunning, remainingTime, selectedActivity]);
 
   const addActivity = () => {
     if (activityName && activityTime) {
@@ -59,7 +62,7 @@ function Cronometro() {
         />
         <input
           type="number"
-          placeholder="00:00:00"
+          placeholder="Tempo em segundos"
           value={activityTime}
           onChange={(e) => setActivityTime(e.target.value)}
         />
