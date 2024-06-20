@@ -10,4 +10,4 @@
 # Objetivo
   Criar um auxilio organizacional e ter um maior controle do seu tempo
 # Estrutura
-  Com apenas duas telas uma de login e outra como home do projeto, login contendo apenas usuario e senha, home contendo toda a funcionalidade do produto
+  Com apenas tres telas (login,cadastrar,home); login contendo apenas usuario e senha,cadastrar contendo usuario e senha utilizando hookset para ser funcional, home contendo toda a funcionalidade do produto
