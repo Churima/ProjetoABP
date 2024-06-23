@@ -84,42 +84,48 @@ function Cronometro() {
   };
 
   return (
-    <div className="cronometro-container">
-      <div className="add-activity">
-        <input
-          type="text"
-          placeholder="O que você quer fazer?"
-          value={activityName}
-          onChange={(e) => setActivityName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="HH:MM:SS"
-          value={activityTime}
-          onChange={handleTimeChange}
-        />
-        <button onClick={addActivity}>Adicionar</button>
-      </div>
-      <div className="activities-list">
-        <h2>Atividades do dia</h2>
-        {activities.map((activity, index) => (
-          <div key={index} className="activity-item">
-            <button onClick={() => selectActivity(activity)} className="activity-button">
-              {activity.name} ({formatTime(activity.time)})
-            </button>
-            <button onClick={() => deleteActivity(index)} className="delete-button">Excluir</button>
-          </div>
-        ))}
-      </div>
-      {selectedActivity && (
-        <div className="cronometro">
-          <h2 className="titulo">{selectedActivity.name}</h2>
-          <div className="relogioWrapper time-display">
-            {new Date(remainingTime * 1000).toISOString().substr(11, 8)}
-          </div>
-          <button onClick={startTimer}>Iniciar</button>
+    <div className="main-container">
+      <div className='left-container'>
+        <div className="add-activity">
+          <input
+            type="text"
+            placeholder="O que você quer fazer?"
+            value={activityName}
+            onChange={(e) => setActivityName(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="HH:MM:SS"
+            value={activityTime}
+            onChange={handleTimeChange}
+          />
+          <button onClick={addActivity}>Adicionar</button>
         </div>
-      )}
+        <div className='cronometro-container'>
+          {selectedActivity && (
+            <div className="cronometro">
+              <h2 className="titulo">{selectedActivity.name}</h2>
+              <div className="relogioWrapper time-display">
+                {new Date(remainingTime * 1000).toISOString().substr(11, 8)}
+              </div>
+              <button onClick={startTimer}>Iniciar</button>
+            </div>
+          )}
+        </div>
+      </div>
+      <div className='right-container'>
+        <div className="activities-list">
+          <h2>Atividades do dia</h2>
+          {activities.map((activity, index) => (
+            <div key={index} className="activity-item">
+              <button onClick={() => selectActivity(activity)} className="activity-button">
+                {activity.name} ({formatTime(activity.time)})
+              </button>
+              <button onClick={() => deleteActivity(index)} className="delete-button">Excluir</button>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
