@@ -8,7 +8,7 @@ function LoginPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const lastUser = localStorage.getItem('lastUser');
+    const lastUser = sessionStorage.getItem('lastUser');
     if (lastUser) {
       const parsedUser = JSON.parse(lastUser);
       setName(parsedUser.name);
@@ -17,7 +17,7 @@ function LoginPage() {
   }, []);
 
   const handleLogin = () => {
-    const lastUser = localStorage.getItem('lastUser');
+    const lastUser = sessionStorage.getItem('lastUser');
     if (lastUser) {
       const parsedUser = JSON.parse(lastUser);
       if (parsedUser.name === name && parsedUser.password === password) {

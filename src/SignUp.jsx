@@ -12,7 +12,7 @@ function SignUp() {
     if (password === confirmPassword && name.trim() && password.trim()) {
       
       const newUser = { name, password };
-      localStorage.setItem('lastUser', JSON.stringify(newUser));
+      sessionStorage.setItem('lastUser', JSON.stringify(newUser));
 
       console.log('Registro realizado com sucesso!');
       
