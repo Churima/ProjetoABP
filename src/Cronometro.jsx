@@ -102,13 +102,17 @@ function Cronometro() {
           <button onClick={addActivity}>Adicionar</button>
         </div>
         <div className='cronometro-container'>
-          {selectedActivity && (
+          {selectedActivity && (selectedActivity != null) ? (
             <div className="cronometro">
               <h2 className="titulo">{selectedActivity.name}</h2>
               <div className="relogioWrapper time-display">
                 {new Date(remainingTime * 1000).toISOString().substr(11, 8)}
               </div>
               <button onClick={startTimer}>Iniciar</button>
+            </div>
+          ):(
+            <div className="cronometro">
+              <h2 className='Placeholder'>Nenhuma atividade selecianada</h2>
             </div>
           )}
         </div>

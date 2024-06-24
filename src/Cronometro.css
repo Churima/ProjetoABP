@@ -37,7 +37,9 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 70%;
-  height: 47%;
+  min-height: fit-content;
+  max-width: 600px;
+  max-height: 300px;
 }
 
 .add-activity {
@@ -81,6 +83,7 @@ body {
   padding: 20px;
   height: 95%;
   overflow-y: auto;
+  max-height: 550px;
 }
 
 .activities-list h2 {
@@ -182,4 +185,13 @@ body {
 
 #root {
   height: 100%;
+}
+
+.cronometro > h2 {
+  margin-top: 0px;
+}
+
+.Placeholder {
+  color: grey;
+  padding: 106px 2px 100px 2px;
 }
