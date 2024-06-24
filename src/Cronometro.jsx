@@ -85,7 +85,6 @@ function Cronometro() {
 
   return (
     <div className="main-container">
-      <div className='left-container'>
         <div className="add-activity">
           <input
             type="text"
@@ -115,9 +114,7 @@ function Cronometro() {
               <h2 className='Placeholder'>Nenhuma atividade selecianada</h2>
             </div>
           )}
-        </div>
       </div>
-      <div className='right-container'>
         <div className="activities-list">
           <h2>Atividades do dia</h2>
           {activities.map((activity, index) => (
@@ -129,7 +126,6 @@ function Cronometro() {
             </div>
           ))}
         </div>
-      </div>
     </div>
   );
 }

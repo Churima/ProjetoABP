@@ -1,32 +1,10 @@
 .main-container {
-  display: flex;
-  flex-direction: row;
   width: 100%;
-  height: 91.5vh;
+  height: 100%;
 }
 
 body {
   height: 100%;
-}
-
-.right-container {
-  width: 46%;
-  height: 95%;
-  padding: 3% 0%;
-  padding-left: 2%;
-  margin-bottom: 80px;
-}
-
-.left-container {
-  width: 54%;
-  display: flex;
-  flex-direction: column;
-  height: 95%;
-  padding: 3% 0%;
-  margin-bottom: 80px;
-  gap: 7%;
-  align-items: end;
-  padding-right: 2%;
 }
 
 .cronometro-container {
@@ -40,6 +18,10 @@ body {
   min-height: fit-content;
   max-width: 600px;
   max-height: 300px;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  translate: 30px 0px;
 }
 
 .add-activity {
@@ -52,6 +34,10 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 30px 20px;
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  translate: 30px -60px;
 }
 
 .add-activity input {
@@ -81,9 +67,13 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   align-self: center;
   padding: 20px;
-  height: 95%;
+  height: 540px ;
   overflow-y: auto;
-  max-height: 550px;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  bottom: 40%;
+  translate: 132px 6px;
 }
 
 .activities-list h2 {
